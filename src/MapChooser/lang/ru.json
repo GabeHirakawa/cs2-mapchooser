@@ -15,7 +15,7 @@
   "general.validation.current-map": "Вы не можете выбрать текущую карту",
   "general.validation.minimum-rounds": "Минимальное количество раундов для использования этой команды {0}",
   "general.validation.warmup": "Команда отключена во время разминки",
-  "general.validation.minimum-players": "Минимальное количество раундов для использования этой команды {0}",
+  "general.validation.minimum-players": "Минимальное количество игроков для использования этой команды {0}",
   "general.validation.disabled": "Сейчас команда выключена",
   "general.validation.map-played-recently": "Карта была недавно сыграна",
   "nextmap": "Следующей картой будет {green}{0}",

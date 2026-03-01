@@ -1,6 +1,6 @@
 {
   "emv.hud.menu-title": "Bir sonraki haritaya oy verin:",
-  "emv.hud.hud-timer": "Sonraki haritaya oy verin: {0}",
+  "emv.hud.hud-timer": "Sonraki haritaya oy verin: {0}sn",
   "emv.hud.finished": "Oylama tamamlandı, sonraki harita: {0}",
   "emv.you-voted": "{0} oy verdiniz",
   "emv.you-voted-extend": "Haritayı uzatmak için oy verdiniz!",

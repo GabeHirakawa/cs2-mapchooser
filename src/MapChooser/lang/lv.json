@@ -17,7 +17,7 @@
   "general.validation.warmup": "Komanda nav pieejama warmup laikā.",
   "general.validation.minimum-players": "Vajadzīgāis spēlētāju skaits lai izmantotu šo komandu ir  {0}",
   "general.validation.disabled": "Komanda ir atspējota šobrīd",
-  "general.validation.map-played-recently": "A térkép nemrégiben játszották",
+  "general.validation.map-played-recently": "Karte tika nesen spēlēta",
   "nextmap": "Nākošā karte būs {green}{0}",
   "nextmap.decided-by-vote": "Nākošā karte tiks izvēlētā pēc balsošanas",
   "timeleft.remaining-rounds": "{0} raundi(s) palikuši/is",
