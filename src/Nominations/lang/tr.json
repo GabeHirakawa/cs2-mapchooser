@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Bir harita aday göster:",
+  "nominate.nominated": "Oyuncu {green}{0}{default}, {green}{1}{default} haritasını aday gösterdi, şimdi {2} oyu var",
+  "nominate.already-nominated": "{green}{0}{default} haritasını zaten aday gösterdiniz, {1} oyu var",
+  "general.invalid-map": "Geçersiz harita",
+  "general.validation.current-map": "Mevcut haritayı seçemezsiniz",
+  "general.validation.disabled": "Komut şu anda devre dışı",
+  "general.validation.map-played-recently": "Harita yakın zamanda oynandı"
+}

@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Izvirzi karti:",
+  "nominate.nominated": "Spēlētājs {green}{0}{default} izvirzija karti {green}{1}{default}, šobrīd ir tai ir {2} balss(is)",
+  "nominate.already-nominated": "Tu jau izvirzīji karti {green}{0}{default}, tai ir {1} balss(is)",
+  "general.invalid-map": "Neatbilstoša karte",
+  "general.validation.current-map": "Tu nevari izvēlēties karti kas šobrīd tiek spēlēta",
+  "general.validation.disabled": "Komanda ir atspējota šobrīd",
+  "general.validation.map-played-recently": "A térkép nemrégiben játszották"
+}

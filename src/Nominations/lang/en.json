@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Nominate a map:",
+  "nominate.nominated": "Player {green}{0}{default} nominated map {green}{1}{default}, now it has {2} vote(s)",
+  "nominate.already-nominated": "You already nominated the map {green}{0}{default}, it has {1} vote(s)",
+  "general.invalid-map": "Invalid map",
+  "general.validation.current-map": "You can't choose the current map",
+  "general.validation.disabled": "Command disabled right now",
+  "general.validation.map-played-recently": "Map has been played recently"
+}

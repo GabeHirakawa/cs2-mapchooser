@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "{green}{0}{default} pályaszavazást szeretne",
+  "rtv.already-rocked-the-vote": "Már kértél pályaszavazást",
+  "rtv.votes-reached": "A szükséges szavazatszám elérve, kezdődik a szavazás...",
+  "rtv.disabled": "Az RTV jelenleg nem használható",
+  "general.votes-needed": "({0} szavazott, {1} szükséges)",
+  "general.validation.warmup": "Bemelegítés alatt nem használható ez a parancs.",
+  "general.validation.minimum-players": "A minimum játékosszám ehhez a parancshoz: {0}",
+  "general.validation.minimum-rounds": "Ehhez a parancshoz a minimum körök száma: {0}"
+}

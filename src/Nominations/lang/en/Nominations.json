@@ -1,9 +1,0 @@
-{
-  "nominate.menu-title": "Nominate a Map",
-  "nominate.nominated": "{0} nominated {1}. ({2} nominations)",
-  "nominate.already-nominated": "You have already nominated {0}. ({1} nominations)",
-  "general.invalid-map": "Map not found in the map pool.",
-  "general.validation.map-played-recently": "That map was played recently and is on cooldown.",
-  "general.validation.current-map": "You cannot nominate the current map.",
-  "general.validation.disabled": "Nominations are disabled while a vote is in progress."
-}

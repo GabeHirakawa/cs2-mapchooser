@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "Гравець {green}{0}{default} хоче відмінити голосування",
+  "rtv.already-rocked-the-vote": "Ви вже відмінили голосування",
+  "rtv.votes-reached": "Досягнуто кількість голосів, починається голосування...",
+  "rtv.disabled": "Rtv вимкнено зараз",
+  "general.votes-needed": "({0} проголосувало, потрібно ще {1})",
+  "general.validation.warmup": "Команда вимкнена під час розігріву",
+  "general.validation.minimum-players": "Мінімум гравців для використання цієї команди - {0}",
+  "general.validation.minimum-rounds": "Мінімум раундів для використання цієї команди - {0}"
+}

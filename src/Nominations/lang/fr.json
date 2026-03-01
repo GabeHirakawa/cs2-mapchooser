@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Proposer une carte :",
+  "nominate.nominated": "Le joueur {green}{0}{default} a proposé la carte {green}{1}{default}, elle a maintenant {2} vote(s)",
+  "nominate.already-nominated": "Vous avez déjà proposé la carte {green}{0}{default}, elle a {1} vote(s)",
+  "general.invalid-map": "Carte invalide",
+  "general.validation.current-map": "Vous ne pouvez pas choisir la carte actuelle",
+  "general.validation.disabled": "Commande désactivée pour le moment",
+  "general.validation.map-played-recently": "La carte a été récemment jouée"
+}

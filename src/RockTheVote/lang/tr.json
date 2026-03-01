@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "{green}{0}{default} oyuncusu !rtv verdi",
+  "rtv.already-rocked-the-vote": "Zaten rtv verdiniz",
+  "rtv.votes-reached": "Oy sayısına ulaşıldı, oylamaya başlıyor...",
+  "rtv.disabled": "Rtv şu anda devre dışı",
+  "general.votes-needed": "({0} oy, {1} gerekli)",
+  "general.validation.warmup": "Isınma sırasında komut devre dışı bırakıldı.",
+  "general.validation.minimum-players": "Bu komutu kullanabilmek için gerekli oyuncu sayısı: {0}",
+  "general.validation.minimum-rounds": "Bu komutu kullanmak için minimum tur sayısı {0}"
+}

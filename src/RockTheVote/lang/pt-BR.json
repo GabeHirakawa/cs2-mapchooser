@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "O jogador {green}{0}{default} quer iniciar o RockTheVote",
+  "rtv.already-rocked-the-vote": "Você já iniciou o RockTheVote",
+  "rtv.votes-reached": "Número de votos atingido, iniciando votação...",
+  "rtv.disabled": "Rtv está desativado no momento",
+  "general.votes-needed": "({0} votos, {1} necessários)",
+  "general.validation.warmup": "Comando desativado durante o aquecimento.",
+  "general.validation.minimum-players": "O número mínimo de jogadores para usar este comando é {0}",
+  "general.validation.minimum-rounds": "O número mínimo de rounds para usar este comando é {0}"
+}

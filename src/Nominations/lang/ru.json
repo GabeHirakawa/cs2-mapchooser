@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Предложить карту:",
+  "nominate.nominated": "Игрок {green}{0}{default} предложил карту {green}{1}{default}, сейчас она имеет {2} голосов",
+  "nominate.already-nominated": "Вы уже предложили эту карту {green}{0}{default}, она имеет {1} голосов",
+  "general.invalid-map": "Неверная карта",
+  "general.validation.current-map": "Вы не можете выбрать текущую карту",
+  "general.validation.disabled": "Сейчас команда выключена",
+  "general.validation.map-played-recently": "Карта была недавно сыграна"
+}

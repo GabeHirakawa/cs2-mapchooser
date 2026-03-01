@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "Gracz {green}{0}{default} chce rozpocząć głosowanie",
+  "rtv.already-rocked-the-vote": "Już rozpocząłeś głosowanie",
+  "rtv.votes-reached": "Osiągnięto wymaganą liczbę głosów, rozpoczynam głosowanie...",
+  "rtv.disabled": "RTV jest obecnie wyłączone",
+  "general.votes-needed": "({0} zagłosowało, potrzeba {1})",
+  "general.validation.warmup": "Komenda wyłączona podczas rozgrzewki.",
+  "general.validation.minimum-players": "Minimalna liczba graczy do użycia tej komendy to {0}",
+  "general.validation.minimum-rounds": "Minimalna liczba rund do użycia tej komendy to {0}"
+}

@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Ajánlj egy pályát:",
+  "nominate.nominated": "{green}{0}{default} ezt a pályát ajánlotta: {green}{1}{default}, jelenleg {2} szavazata van",
+  "nominate.already-nominated": "Már ajánlottad ezt a pályát: {green}{0}{default}, jelenleg {1} szavazata van",
+  "general.invalid-map": "Érvénytelen pálya",
+  "general.validation.current-map": "A jelenlegi pályát nem tudod kiválasztani",
+  "general.validation.disabled": "Jelenleg nincs engedélyezve ez a parancs",
+  "general.validation.map-played-recently": "Ezt a pályát nemrégiben játszották"
+}

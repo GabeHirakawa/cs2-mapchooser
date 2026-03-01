@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Indicar um mapa:",
+  "nominate.nominated": "O jogador {green}{0}{default} indicou o mapa {green}{1}{default}, agora ele tem {2} voto(s)",
+  "nominate.already-nominated": "Você já indicou o mapa {green}{0}{default}, ele tem {1} voto(s)",
+  "general.invalid-map": "Mapa inválido",
+  "general.validation.current-map": "Você não pode escolher o mapa atual",
+  "general.validation.disabled": "Comando desativado no momento",
+  "general.validation.map-played-recently": "O mapa foi jogado recentemente"
+}

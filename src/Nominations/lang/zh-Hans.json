@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "提名一张地图:",
+  "nominate.nominated": "玩家 {green}{0}{default} 指定地图 {green}{1}{default}, 现在有 {2} 票",
+  "nominate.already-nominated": "你已经指定地图为 {green}{0}{default}, 现在有 {1} 票",
+  "general.invalid-map": "错误地图",
+  "general.validation.current-map": "你不能选择当前地图",
+  "general.validation.disabled": "命令被禁用",
+  "general.validation.map-played-recently": "地图最近已经被玩过"
+}

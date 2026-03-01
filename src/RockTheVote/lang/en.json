@@ -1,0 +1,10 @@
+{
+  "rtv.rocked-the-vote": "Player {green}{0}{default} wants to rock the vote",
+  "rtv.already-rocked-the-vote": "You already rocked the vote",
+  "rtv.votes-reached": "Number of votes reached, starting vote...",
+  "rtv.disabled": "RTV is disabled right now",
+  "general.votes-needed": "({0} voted, {1} needed)",
+  "general.validation.warmup": "Command disabled during warmup.",
+  "general.validation.minimum-players": "Minimum players to use this command is {0}",
+  "general.validation.minimum-rounds": "Minimum rounds to use this command is {0}"
+}

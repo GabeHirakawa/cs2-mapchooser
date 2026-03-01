@@ -1,0 +1,9 @@
+{
+  "nominate.menu-title": "Висунути карту:",
+  "nominate.nominated": "Гравець {green}{0}{default} висунув кандидатуру карти {green}{1}{default}, зараз у неї {2} голосів",
+  "nominate.already-nominated": "Ви вже висунули кандидатуру карти {green}{0}{default}, зараз у неї {1} голос(ів)",
+  "general.invalid-map": "Неприпустима карта",
+  "general.validation.current-map": "Ви не можете обирати поточну карту",
+  "general.validation.disabled": "Команда вимкнена зараз",
+  "general.validation.map-played-recently": "Карта була недавно зіграна"
+}
