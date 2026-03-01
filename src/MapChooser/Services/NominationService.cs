@@ -11,6 +11,7 @@ public class NominationService
     private readonly CooldownService _cooldown;
 
     private readonly Dictionary<ulong, Map> _nominations = new();
+    private int _maxNominationsPerPlayer = 1;
 
     public NominationService(
         ILogger<NominationService> logger,
@@ -20,6 +21,11 @@ public class NominationService
         _logger = logger;
         _mapPool = mapPool;
         _cooldown = cooldown;
+    }
+
+    public void Configure(int maxNominationsPerPlayer)
+    {
+        _maxNominationsPerPlayer = maxNominationsPerPlayer;
     }
 
     public NominationResult Nominate(CCSPlayerController player, Map map, string currentMap, bool voteInProgress)
