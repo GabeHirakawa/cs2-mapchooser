@@ -25,6 +25,7 @@ public class VoteService
     private bool _voteInProgress;
     private readonly Dictionary<string, float> _votes = new(StringComparer.OrdinalIgnoreCase);
     private readonly HashSet<ulong> _votedPlayers = [];
+    private readonly Dictionary<ulong, (string MapKey, float Weight)> _playerVoteChoices = [];
     private List<Map> _voteMaps = [];
     private VoteConfig _currentVoteConfig = new();
     private int _timeRemaining;
@@ -88,6 +89,7 @@ public class VoteService
         _voteInProgress = true;
         _votes.Clear();
         _votedPlayers.Clear();
+        _playerVoteChoices.Clear();
 
         // Build map list: nominations first, then random from pool
         var nominated = _nominations.GetNominationWinners();
@@ -190,6 +192,7 @@ public class VoteService
         _votedPlayers.Add(steamId);
         var weight = _voteWeight.GetVoteWeight(player);
         _votes[mapKey] += weight;
+        _playerVoteChoices[steamId] = (mapKey, weight);
 
         if (mapKey == ExtendOptionKey)
         {
@@ -332,6 +335,18 @@ public class VoteService
 
     public void RemovePlayerVotes(ulong steamId)
     {
+        if (_playerVoteChoices.TryGetValue(steamId, out var choice))
+        {
+            if (_votes.ContainsKey(choice.MapKey))
+            {
+                _votes[choice.MapKey] -= choice.Weight;
+                if (_votes[choice.MapKey] < 0)
+                    _votes[choice.MapKey] = 0;
+            }
+
+            _playerVoteChoices.Remove(steamId);
+        }
+
         _votedPlayers.Remove(steamId);
     }
 
@@ -342,6 +357,7 @@ public class VoteService
         _voteInProgress = false;
         _votes.Clear();
         _votedPlayers.Clear();
+        _playerVoteChoices.Clear();
         _voteMaps.Clear();
         NextMap = null;
         _extendCount = 0;
