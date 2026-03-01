@@ -18,6 +18,7 @@ obj/
 
 ## Rider
 .idea/
+*.DotSettings.user
 
 ## OS
 .DS_Store
