@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MapChooser.Contracts/MapChooser.Contracts.csproj" />
+    <Project Path="src/MapChooser/MapChooser.csproj" />
+    <Project Path="src/Nominations/Nominations.csproj" />
+    <Project Path="src/RockTheVote/RockTheVote.csproj" />
+  </Folder>
+</Solution>
