@@ -67,7 +67,7 @@ public class NominationsPlugin : BasePlugin, IPluginConfig<NominationsConfig>
             }
         }
 
-        var api = MapChooserCapability.Get();
+        var api = MapChooserCapability.TryGet();
         if (api is null)
         {
             player.PrintToChat(" \x02[Nominate]\x01 MapChooser plugin is not loaded.");
