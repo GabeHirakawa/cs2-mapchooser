@@ -68,7 +68,7 @@ public class RockTheVotePlugin : BasePlugin, IPluginConfig<RtvConfig>
         if (player is null || !player.IsValid || player.IsBot)
             return;
 
-        var api = MapChooserCapability.Get();
+        var api = MapChooserCapability.TryGet();
         var result = _rtvService.TryRtv(player, Config, api);
 
         switch (result)
