@@ -23,3 +23,7 @@ obj/
 ## OS
 .DS_Store
 Thumbs.db
+
+## Build pipeline
+publish/
+staging/
