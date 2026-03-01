@@ -35,11 +35,11 @@ public class RtvService
         _isWarmup = false;
     }
 
-    public void OnMapStart()
+    public void OnMapStart(bool isWarmup)
     {
         _rtvVotes.Clear();
         _roundsPlayed = 0;
-        _isWarmup = true;
+        _isWarmup = isWarmup;
     }
 
     public void OnPlayerDisconnect(ulong steamId)
@@ -84,6 +84,11 @@ public class RtvService
             return RtvResult.VotesReached;
 
         return RtvResult.Added;
+    }
+
+    public void ResetVotes()
+    {
+        _rtvVotes.Clear();
     }
 
     public float GetTotalWeightedVotes() => _rtvVotes.Values.Sum();

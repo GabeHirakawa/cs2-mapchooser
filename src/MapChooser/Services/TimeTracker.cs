@@ -8,6 +8,7 @@ public class TimeTracker
 {
     private readonly ILogger<TimeTracker> _logger;
     private readonly GameRulesService _gameRules;
+    private ConVar? _timeLimitCvar;
 
     public TimeTracker(ILogger<TimeTracker> logger, GameRulesService gameRules)
     {
@@ -15,11 +16,15 @@ public class TimeTracker
         _gameRules = gameRules;
     }
 
+    public void Initialize()
+    {
+        _timeLimitCvar = ConVar.Find("mp_timelimit");
+    }
+
     public float? GetTimeLimit()
     {
-        var cvar = ConVar.Find("mp_timelimit");
-        if (cvar is null) return null;
-        var value = cvar.GetPrimitiveValue<float>();
+        if (_timeLimitCvar is null) return null;
+        var value = _timeLimitCvar.GetPrimitiveValue<float>();
         return value > 0 ? value : null;
     }
 

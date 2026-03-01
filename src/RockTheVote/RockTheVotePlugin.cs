@@ -30,7 +30,13 @@ public class RockTheVotePlugin : BasePlugin, IPluginConfig<RtvConfig>
 
     public override void Load(bool hotReload)
     {
-        RegisterListener<OnMapStart>(mapName => _rtvService.OnMapStart());
+        RegisterListener<OnMapStart>(mapName =>
+        {
+            var gameRules = Utilities.FindAllEntitiesByDesignerName<CCSGameRulesProxy>("cs_gamerules")
+                .FirstOrDefault()?.GameRules;
+            bool isWarmup = gameRules?.WarmupPeriod ?? false;
+            _rtvService.OnMapStart(isWarmup);
+        });
 
         RegisterEventHandler<EventRoundEnd>((@event, info) =>
         {
@@ -76,7 +82,6 @@ public class RockTheVotePlugin : BasePlugin, IPluginConfig<RtvConfig>
                 break;
 
             case RtvResult.VotesReached:
-                Server.PrintToChatAll($" \x02[RTV]\x01 {Localizer["rtv.votes-reached"]}");
                 var voteConfig = new VoteConfig(
                     MapsToShow: Config.MapsToShow,
                     VoteDurationSeconds: Config.VoteDurationSeconds,
@@ -84,7 +89,17 @@ public class RockTheVotePlugin : BasePlugin, IPluginConfig<RtvConfig>
                     ChangeMapImmediately: Config.ChangeMapImmediately,
                     TriggerSource: "rtv"
                 );
-                api?.StartVote(voteConfig);
+                var started = api?.StartVote(voteConfig) ?? false;
+                if (started)
+                {
+                    Server.PrintToChatAll($" \x02[RTV]\x01 {Localizer["rtv.votes-reached"]}");
+                }
+                else
+                {
+                    _rtvService.ResetVotes();
+                    Logger.LogWarning("RTV vote threshold reached but StartVote failed. Votes have been reset.");
+                    player.PrintToChat($" \x02[RTV]\x01 {Localizer["rtv.disabled"]}");
+                }
                 break;
 
             case RtvResult.AlreadyVoted:

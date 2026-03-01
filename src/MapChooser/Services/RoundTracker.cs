@@ -6,6 +6,7 @@ namespace MapChooser.Services;
 public class RoundTracker
 {
     private readonly ILogger<RoundTracker> _logger;
+    private ConVar? _maxRoundsCvar;
 
     private int _ctWins;
     private int _tWins;
@@ -13,6 +14,11 @@ public class RoundTracker
     public RoundTracker(ILogger<RoundTracker> logger)
     {
         _logger = logger;
+    }
+
+    public void Initialize()
+    {
+        _maxRoundsCvar = ConVar.Find("mp_maxrounds");
     }
 
     public void OnRoundEnd(int winnerTeam)
@@ -25,9 +31,8 @@ public class RoundTracker
 
     public int? GetMaxRounds()
     {
-        var cvar = ConVar.Find("mp_maxrounds");
-        if (cvar is null) return null;
-        var value = cvar.GetPrimitiveValue<int>();
+        if (_maxRoundsCvar is null) return null;
+        var value = _maxRoundsCvar.GetPrimitiveValue<int>();
         return value > 0 ? value : null;
     }
 

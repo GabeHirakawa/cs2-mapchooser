@@ -182,6 +182,8 @@ public class MapChooserPlugin : BasePlugin, IPluginConfig<MapChooserConfig>
         _roundTracker.Reset();
         _endOfMap.Reset();
         _gameRules.RefreshGameRules();
+        _timeTracker.Initialize();
+        _roundTracker.Initialize();
         _cooldown.RecordMapPlayed(mapName);
         _mapPool.LoadMaps(ModuleDirectory, Config.MapPool);
 
