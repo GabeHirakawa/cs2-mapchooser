@@ -1,0 +1,89 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore cs2-mapchooser.slnx
+
+      - name: Publish MapChooser
+        run: dotnet publish src/MapChooser/MapChooser.csproj -c Release -o publish/MapChooser
+
+      - name: Publish Nominations
+        run: dotnet publish src/Nominations/Nominations.csproj -c Release -o publish/Nominations
+
+      - name: Publish RockTheVote
+        run: dotnet publish src/RockTheVote/RockTheVote.csproj -c Release -o publish/RockTheVote
+
+      - name: Stage archive
+        run: |
+          mkdir -p staging/MapChooser staging/Nominations staging/RockTheVote
+
+          # MapChooser: plugin DLL + contracts DLL + lang + maplist
+          cp publish/MapChooser/MapChooser.dll staging/MapChooser/
+          cp publish/MapChooser/MapChooser.Contracts.dll staging/MapChooser/
+          cp -r publish/MapChooser/lang staging/MapChooser/
+          cp publish/MapChooser/maplist.txt staging/MapChooser/
+
+          # Nominations: plugin DLL + contracts DLL + lang
+          cp publish/Nominations/Nominations.dll staging/Nominations/
+          cp publish/Nominations/MapChooser.Contracts.dll staging/Nominations/
+          cp -r publish/Nominations/lang staging/Nominations/
+
+          # RockTheVote: plugin DLL + contracts DLL + lang
+          cp publish/RockTheVote/RockTheVote.dll staging/RockTheVote/
+          cp publish/RockTheVote/MapChooser.Contracts.dll staging/RockTheVote/
+          cp -r publish/RockTheVote/lang staging/RockTheVote/
+
+      - name: Determine version
+        id: version
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            echo "name=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=build-$(echo $GITHUB_SHA | cut -c1-7)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create zip
+        run: |
+          cd staging
+          zip -r "../cs2-mapchooser-${{ steps.version.outputs.name }}.zip" .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cs2-mapchooser
+          path: cs2-mapchooser-*.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: cs2-mapchooser
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: cs2-mapchooser-*.zip
+          generate_release_notes: true
