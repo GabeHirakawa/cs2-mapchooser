@@ -7,6 +7,7 @@ using MapChooser.Contracts;
 using MapChooser.Contracts.Models;
 using Microsoft.Extensions.Logging;
 using Nominations.Config;
+using static CounterStrikeSharp.API.Core.Listeners;
 
 namespace Nominations;
 
@@ -21,6 +22,8 @@ public class NominationsPlugin : BasePlugin, IPluginConfig<NominationsConfig>
 
     private static readonly PluginCapability<IMapChooserApi> MapChooserCapability = new("mapchooser:api");
 
+    private bool _isWarmup = true;
+
     public void OnConfigParsed(NominationsConfig config)
     {
         Config = config;
@@ -28,6 +31,14 @@ public class NominationsPlugin : BasePlugin, IPluginConfig<NominationsConfig>
 
     public override void Load(bool hotReload)
     {
+        RegisterListener<OnMapStart>(_ => _isWarmup = true);
+
+        RegisterEventHandler<EventWarmupEnd>((@event, info) =>
+        {
+            _isWarmup = false;
+            return HookResult.Continue;
+        });
+
         AddCommand("css_nominate", "Nominate a map", OnNominateCommand);
 
         Logger.LogInformation("Nominations loaded");
@@ -37,6 +48,24 @@ public class NominationsPlugin : BasePlugin, IPluginConfig<NominationsConfig>
     {
         if (player is null || !player.IsValid || player.IsBot)
             return;
+
+        if (_isWarmup && !Config.EnabledInWarmup)
+        {
+            player.PrintToChat($" \x02[Nominate]\x01 {Localizer["general.validation.warmup"]}");
+            return;
+        }
+
+        if (Config.MinPlayers > 0)
+        {
+            var validPlayerCount = Utilities.GetPlayers()
+                .Count(p => p is { IsValid: true, IsBot: false, IsHLTV: false });
+
+            if (validPlayerCount < Config.MinPlayers)
+            {
+                player.PrintToChat($" \x02[Nominate]\x01 {Localizer["general.validation.minimum-players", Config.MinPlayers]}");
+                return;
+            }
+        }
 
         var api = MapChooserCapability.Get();
         if (api is null)

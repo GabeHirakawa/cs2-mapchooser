@@ -96,7 +96,7 @@ public class MapChooserPlugin : BasePlugin, IPluginConfig<MapChooserConfig>
 
         _mapPool.LoadMaps(ModuleDirectory, config.MapPool);
         _cooldown.Initialize(ModuleDirectory, config.MapPool);
-        _nominations.Configure(1);
+        _nominations.Configure(config.MaxNominationsPerPlayer);
         _voteWeight.Configure(config.VoteWeights, config.DefaultVoteWeight);
         _mapChange.Initialize(this, config.MapChange);
         _voteService.Initialize(this, config);

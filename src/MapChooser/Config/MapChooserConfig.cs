@@ -103,4 +103,7 @@ public class MapChooserConfig : BasePluginConfig
 
     [JsonPropertyName("Commands")]
     public CommandSettings Commands { get; set; } = new();
+
+    [JsonPropertyName("MaxNominationsPerPlayer")]
+    public int MaxNominationsPerPlayer { get; set; } = 1;
 }

@@ -5,5 +5,7 @@
   "general.invalid-map": "Invalid map",
   "general.validation.current-map": "You can't choose the current map",
   "general.validation.disabled": "Command disabled right now",
-  "general.validation.map-played-recently": "Map has been played recently"
+  "general.validation.map-played-recently": "Map has been played recently",
+  "general.validation.warmup": "Command disabled during warmup.",
+  "general.validation.minimum-players": "Minimum players to use this command is {0}"
 }

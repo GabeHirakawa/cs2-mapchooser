@@ -5,9 +5,6 @@ namespace Nominations.Config;
 
 public class NominationsConfig : BasePluginConfig
 {
-    [JsonPropertyName("MaxNominationsPerPlayer")]
-    public int MaxNominationsPerPlayer { get; set; } = 1;
-
     [JsonPropertyName("EnabledInWarmup")]
     public bool EnabledInWarmup { get; set; } = false;
 

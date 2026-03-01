@@ -44,10 +44,13 @@ public class NominationService
 
         var steamId = player.SteamID;
 
-        if (_nominations.TryGetValue(steamId, out var existing) &&
-            existing.Name.Equals(map.Name, StringComparison.OrdinalIgnoreCase))
+        if (_nominations.TryGetValue(steamId, out var existing))
         {
-            return NominationResult.AlreadyNominated;
+            if (existing.Name.Equals(map.Name, StringComparison.OrdinalIgnoreCase))
+                return NominationResult.AlreadyNominated;
+
+            if (_maxNominationsPerPlayer <= 1)
+                return NominationResult.MaxNominationsReached;
         }
 
         _nominations[steamId] = map;
